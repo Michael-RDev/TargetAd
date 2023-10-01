@@ -20,7 +20,7 @@ To embark on your journey with TargetAd, follow these simple steps:
 
 1. **Clone the Repository**: Begin by cloning this GitHub repository to your local machine.
   ```bash
-   git clone
+   git clone https://github.com/Michael-RDev/TargetAd.git
   ```
 
 2. **Create a Python Virtual Environment**: Establish a Python virtual environment to ensure a clean and isolated development environment.
