@@ -91,7 +91,7 @@ def video_process(cam):
 
                 if age and time.time() - start_time >= thresh:
                     store_data = load_ad(input_age=age, age_val=ad_age, images=image)
-                    load_ad(age, ad_age, image)
+                    # load_ad(age, ad_age, image)
                     load_survey(cam, gender, age, store_data)
                     start_time = time.time()
 
@@ -102,8 +102,6 @@ def video_process(cam):
 
         
         cv2.imshow("age video idk", dnn_frame)
-        #cv2.imshow("improved model", face_mesh(frame=frame))
-        #cv2.moveWindow("improved model", 900, 50)
         
         
         if cv2.waitKey(2) == ord('q'):

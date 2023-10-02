@@ -10,15 +10,13 @@ def getImgs(input_path:str):
         full_age_path = os.path.join(input_path, age_group)
         for folder in os.listdir(full_age_path):
             img_path = os.path.join(full_age_path, folder)
-            if img_path.endswith(".jpg") or img_path.endswith(".webp") or img_path.endswith(".png"):
+            for gender in os.listdir(img_path):
+                gender_paths = os.path.join(img_path, gender)
+                images.append(gender_paths)
                 age.append(img_path.split("/")[-2])
-                images.append(img_path)
-            else:
-                for gender in os.listdir(img_path):
-                    gender_paths = os.path.join(img_path, gender)
-                    images.append(gender_paths)
-                    gen.append(img_path.split("/")[-1])
+                gen.append(img_path.split("/")[-1])
     return images, gen, age    
+
 
 def load_ad(input_age:str, age_val:list, images:list):
     indexs = []
@@ -39,8 +37,8 @@ def load_ad(input_age:str, age_val:list, images:list):
         font_size = int(1.5 * font_scale)
         text_position = (100, 100)
         font = cv2.FONT_HERSHEY_SIMPLEX
-        color = (255, 0, 255)
-        thickness = 3
+        color = (0, 255, 0)
+        thickness = 2
         cv2.putText(img, f"Available Products: {img_path_updated}", text_position, font, font_size, color, thickness, cv2.LINE_AA)
         cv2.moveWindow("ad ting", 700, 0)
         cv2.imshow("ad ting", img)

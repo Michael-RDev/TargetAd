@@ -5,3 +5,13 @@ age,gender,store,relevant
 (25-32),Male,/Users/michael/Desktop/TargetAd/imgs/15-20/man/shoes.png,False
 (38-41),Male,/Users/michael/Desktop/TargetAd/imgs/38-41/dresses.png,False
 (38-41),Male,/Users/michael/Desktop/TargetAd/imgs/38-41/dresses.png,False
+(8-12),Male,/Users/michael/Desktop/TargetAd/imgs/15-20/woman/dresses.png,True
+(8-12),Male,/Users/michael/Desktop/TargetAd/imgs/15-20/woman/dresses.png,True
+(4-6),Female,/Users/michael/Desktop/TargetAd/imgs/15-20/woman/modern_clothing.png,False
+(0-2),Female,/Users/michael/Desktop/TargetAd/imgs/0-2/woman/animals.webp,False
+(0-2),Female,/Users/michael/Desktop/TargetAd/imgs/0-2/woman/animals.webp,False
+(25-32),Male,/Users/michael/Desktop/TargetAd/imgs/25-32/man/sports.png,True
+(25-32),Male,/Users/michael/Desktop/TargetAd/imgs/25-32/woman/adult_clothes.webp,False
+(25-32),Male,/Users/michael/Desktop/TargetAd/imgs/25-32/woman/adult_clothes.webp,False
+(8-12),Female,/Users/michael/Desktop/TargetAd/imgs/8-12/man/video_games.webp,True
+(8-12),Female,/Users/michael/Desktop/TargetAd/imgs/8-12/woman/ice_rink.png,False
