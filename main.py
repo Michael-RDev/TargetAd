@@ -68,37 +68,39 @@ def video_process(cam):
             break
         frame = cv2.flip(frame, 1)
         frame = cv2.resize(frame, (width, height))
+        x, y, _ = frame.shape
+        if x > 0 and y > 0:
 
-        dnn_frame, face_boxes = find_faces(face_dnn, frame)
-        if face_boxes:
-            for face_box in face_boxes:
-                face = frame[max(0, face_box[1] - padding): 
-                            min(face_box[3] + padding, frame.shape[0]- 1), 
-                            max(0, face_box[0] - padding): 
-                            min(face_box[2] + padding, frame.shape[1] - 1)]
+            dnn_frame, face_boxes = find_faces(face_dnn, frame)
+            if face_boxes:
+                for face_box in face_boxes:
+                    face = frame[max(0, face_box[1] - padding): 
+                                min(face_box[3] + padding, frame.shape[0]- 1), 
+                                max(0, face_box[0] - padding): 
+                                min(face_box[2] + padding, frame.shape[1] - 1)]
+                    
+                    if face.size > 0:
+                        blob = cv2.dnn.blobFromImage(face, 1.0, (227, 227), MODEL_MEAN_VALUES, swapRB=False)
+
+                        gen_dnn.setInput(blob=blob)
+                        gen_preds = gen_dnn.forward()
+                        gender = gender_groups[gen_preds[0].argmax()]
+                        
+                        age_dnn.setInput(blob=blob)
+                        age_preds = age_dnn.forward()
+                        age = age_groups[age_preds[0].argmax()]
+                        print(age)
+                        thresh = 2
+
+                        if age and time.time() - start_time >= thresh:
+                            store_data = load_ad(input_age=age, age_val=ad_age, images=image, gender=gender, gen_val=ad_gender)
+                            load_survey(cam, gender, age, store_data)
+                            start_time = time.time()
+
+                        else:
+                            pass
                 
-                blob = cv2.dnn.blobFromImage(face, 1.0, (227, 227), MODEL_MEAN_VALUES, swapRB=False)
-
-                gen_dnn.setInput(blob=blob)
-                gen_preds = gen_dnn.forward()
-                gender = gender_groups[gen_preds[0].argmax()]
-                
-                age_dnn.setInput(blob=blob)
-                age_preds = age_dnn.forward()
-                age = age_groups[age_preds[0].argmax()]
-            
-                thresh = 2
-
-                if age and time.time() - start_time >= thresh:
-                    store_data = load_ad(input_age=age, age_val=ad_age, images=image)
-                    # load_ad(age, ad_age, image)
-                    load_survey(cam, gender, age, store_data)
-                    start_time = time.time()
-
-                else:
-                    pass
-        
-                cv2.putText(dnn_frame, f'{gender}, {age}', (face_box[0], face_box[1] - 10), cv2.FONT_HERSHEY_SIMPLEX, 0.8, (0, 0, 255), 2, cv2.LINE_AA)
+                        cv2.putText(dnn_frame, f'{gender}, {age}', (face_box[0], face_box[1] - 10), cv2.FONT_HERSHEY_SIMPLEX, 0.8, (0, 0, 255), 2, cv2.LINE_AA)
 
         
         cv2.imshow("age video idk", dnn_frame)
