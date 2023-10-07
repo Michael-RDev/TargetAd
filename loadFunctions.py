@@ -18,7 +18,6 @@ def getImgs(input_path:str):
     return images, gen, age    
 
 def load_ad(input_age:str, age_val:list, images:list, gender:str, gen_val:list):
-    indexs = []
     age = input_age.split("(")[1]
     age = age.split("-")[0]
     age_val = [num.split("-")[0] for num in age_val]
