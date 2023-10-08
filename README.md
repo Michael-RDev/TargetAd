@@ -48,8 +48,6 @@ To embark on your journey with TargetAd, follow these simple steps:
   pip install -r requirements.txt
   ```
 
-**MAKE SURE TO CHANGE YOUR PATHS**
-
 4. **Run the Program**: You're all set! Run the TargetAd program and experience the magic of personalized advertising recommendations based on age and gender.
   ```bash
     python main.py
