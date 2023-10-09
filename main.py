@@ -4,14 +4,14 @@ from randomTime import load_survey
 #from improvedVision import face_mesh
 import time
 
-face_proto = "/Users/michael/Desktop/TargetAd/models/face_proto.pbtxt"
-face_model = "/Users/michael/Desktop/TargetAd/models/face_model.pb"
+face_proto = "models/face_proto.pbtxt"
+face_model = "models/face_model.pb"
 
-gen_proto = "/Users/michael/Desktop/TargetAd/models/gender_proto.prototxt"
-gen_model = "/Users/michael/Desktop/TargetAd/models/gender_model.caffemodel"
+gen_proto = "models/gender_proto.prototxt"
+gen_model = "models/gender_model.caffemodel"
 
-age_proto = "/Users/michael/Desktop/TargetAd/models/age_proto.prototxt"
-age_model = "/Users/michael/Desktop/TargetAd/models/age_model.caffemodel"
+age_proto = "models/age_proto.prototxt"
+age_model = "models/age_model.caffemodel"
 
 
 face_dnn = cv2.dnn.readNet(face_model, face_proto)
@@ -51,7 +51,7 @@ def find_faces(dnn ,dframe, confidence=0.9):
     return dnn_frame, face_boxes
 
 
-img_paths = "/Users/michael/Desktop/TargetAd/imgs"
+img_paths = "imgs/"
 
 image, ad_gender, ad_age = getImgs(img_paths)
 
@@ -89,7 +89,6 @@ def video_process(cam):
                         age_dnn.setInput(blob=blob)
                         age_preds = age_dnn.forward()
                         age = age_groups[age_preds[0].argmax()]
-                        print(age)
                         thresh = 2
 
                         if age and time.time() - start_time >= thresh:

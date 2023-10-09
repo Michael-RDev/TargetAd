@@ -1,6 +1,6 @@
 import pandas as pd
 
-dataFile = pd.read_csv("/Users/michael/Desktop/TargetAd/data/ad_data.csv")
+dataFile = pd.read_csv("data/ad_data.csv")
 
 ages = dataFile['age'].values
 

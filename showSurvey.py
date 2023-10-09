@@ -27,7 +27,7 @@ def detect_thumb_gesture(camera_object, gender_in:str, age_in:str, store_in:str)
     start_time = time.time()
     close_time = time.time()
 
-    data_feedback = "/Users/michael/Desktop/TargetAd/data/ad_data.csv"
+    data_feedback = "data/ad_data.csv"
 
     while True:
         succ, frame = camera_object.read()

@@ -45,3 +45,6 @@ age,gender,store,relevant
 (25-32),Female,/Users/michael/Desktop/TargetAd/imgs/25-32/woman/dresses.png,False
 (60-100),Male,/Users/michael/Desktop/TargetAd/imgs/60-100/woman/Heaven.jpg,False
 (8-12),Male,/Users/michael/Desktop/TargetAd/imgs/8-12/Male/ice_rink.png,True
+(25-32),Female,imgs/25-32/Female/adult_clothes.webp,False
+(25-32),Female,imgs/25-32/Female/adult_clothes.webp,False
+(25-32),Female,imgs/25-32/Female/adult_clothes.webp,True
