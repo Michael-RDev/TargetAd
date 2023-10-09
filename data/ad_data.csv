@@ -48,3 +48,6 @@ age,gender,store,relevant
 (25-32),Female,imgs/25-32/Female/adult_clothes.webp,False
 (25-32),Female,imgs/25-32/Female/adult_clothes.webp,False
 (25-32),Female,imgs/25-32/Female/adult_clothes.webp,True
+(8-12),Male,imgs/8-12/Male/sports_equipment.png,True
+(8-12),Male,imgs/8-12/Male/sports_equipment.png,True
+(8-12),Male,imgs/8-12/Male/sports_equipment.png,False
