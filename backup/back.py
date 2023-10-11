@@ -89,7 +89,7 @@ def video_process(cam):
                 age_preds = age_dnn.forward()
                 age = age_groups[age_preds[0].argmax()]
             
-                thresh = 2
+                thresh = 5
 
                 if age and time.time() - start_time >= thresh:
                     load_ad(input_age=age, age_val=ad_age, images=image)

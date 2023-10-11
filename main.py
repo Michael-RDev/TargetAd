@@ -61,10 +61,10 @@ padding = 20
 
 def video_process(cam):
     start_time = time.time()
+    ad_counter = 0
     while True:
         ready, frame = cam.read()
         if not ready:
-            print("no frame found")
             break
         frame = cv2.flip(frame, 1)
         frame = cv2.resize(frame, (width, height))
@@ -86,14 +86,17 @@ def video_process(cam):
                         gen_preds = gen_dnn.forward()
                         gender = gender_groups[gen_preds[0].argmax()]
                         
+
                         age_dnn.setInput(blob=blob)
                         age_preds = age_dnn.forward()
                         age = age_groups[age_preds[0].argmax()]
-                        thresh = 2
-
-                        if age and time.time() - start_time >= thresh:
+                        thresh = 5
+                        end_time = age and time.time()
+                        if  end_time - start_time >= thresh:
                             store_data = load_ad(input_age=age, age_val=ad_age, images=image, gender=gender, gen_val=ad_gender)
-                            load_survey(cam, gender, age, store_data)
+                            ad_counter += 1
+                            if ad_counter >= 2:
+                                load_survey(cam, gender, age, store_data)                    
                             start_time = time.time()
 
                         else:
@@ -101,10 +104,7 @@ def video_process(cam):
                 
                         cv2.putText(dnn_frame, f'{gender}, {age}', (face_box[0], face_box[1] - 10), cv2.FONT_HERSHEY_SIMPLEX, 0.8, (0, 0, 255), 2, cv2.LINE_AA)
 
-        
         cv2.imshow("age video idk", dnn_frame)
-        
-        
         if cv2.waitKey(2) == ord('q'):
             break
 

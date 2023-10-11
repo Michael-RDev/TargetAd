@@ -29,9 +29,11 @@ def load_ad(input_age:str, age_val:list, images:list, gender:str, gen_val:list):
         if common_indeces:
             index = np.random.choice(common_indeces)
             img_path = images[index]
+            print(f"Age: {age}")
+            print(f"Gender: {gender}")
             print(f"Selected image path: {img_path}")
             img = cv2.imread(img_path)
-            img = cv2.resize(img, (700, 700))
+            img = cv2.resize(img, (800, 800))
             img = img / 255.0
 
             img_path_updated = img_path.split("/")[-1]
@@ -48,6 +50,7 @@ def load_ad(input_age:str, age_val:list, images:list, gender:str, gen_val:list):
             cv2.imshow("ad ting", img)
             cv2.moveWindow("ad ting", 700, 0)
             return img_path
+
         else:
             print("No matching images found for the given age and gender.")
     else:

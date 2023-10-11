@@ -13,7 +13,7 @@ def writeToCSV(data_path:str, gender_input:str, age_input:str, store_input:str, 
         df = pd.read_csv(data_path)
     else:
         df = pd.DataFrame(columns=['age', 'gender', 'store', 'relevant'])
-
+        
     new_data = {'age': [age_input], 'gender': [gender_input], 'store': [store_input], "relevant": [is_relevant]}  
     new_df = pd.DataFrame(new_data)
     df = pd.concat([df, new_df], ignore_index=True)
@@ -65,7 +65,7 @@ def detect_thumb_gesture(camera_object, gender_in:str, age_in:str, store_in:str)
         cv2.putText(frame_rgb, "Did you find this ad relevant?", (100, 100), 5, 2, (255, 0, 0), 2, 3)
         cv2.putText(frame_rgb,"(Thumbs up or Thumbs down)", (100, 200), 5,2,(255, 0 , 0), 2, 3)
         cv2.imshow("Survey Thing",cv2.cvtColor(frame_rgb, cv2.COLOR_BGR2RGB))
-        cv2.moveWindow("Survey Thing", 100, 200)
+        cv2.moveWindow("Survey Thing", 150, 200)
 
         check_time =  time.time() - close_time
         if check_time > 10:
