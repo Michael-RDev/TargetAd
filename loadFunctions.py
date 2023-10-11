@@ -46,9 +46,9 @@ def load_ad(input_age:str, age_val:list, images:list, gender:str, gen_val:list):
             color = (0, 255, 0)
             thickness = 2
             cv2.putText(img, f"Available Products: {img_path_updated}", text_position, font, font_size, color, thickness, cv2.LINE_AA)
-            cv2.moveWindow("ad ting", 700, 0)
-            cv2.imshow("ad ting", img)
-            cv2.moveWindow("ad ting", 700, 0)
+            cv2.moveWindow("Recommended AD", 700, 0)
+            cv2.imshow("Recommended AD", img)
+            cv2.moveWindow("Recommended AD", 700, 0)
             return img_path
 
         else:

@@ -104,7 +104,7 @@ def video_process(cam):
                 
                         cv2.putText(dnn_frame, f'{gender}, {age}', (face_box[0], face_box[1] - 10), cv2.FONT_HERSHEY_SIMPLEX, 0.8, (0, 0, 255), 2, cv2.LINE_AA)
 
-        cv2.imshow("age video idk", dnn_frame)
+        cv2.imshow("Age Detection", dnn_frame)
         if cv2.waitKey(2) == ord('q'):
             break
 
