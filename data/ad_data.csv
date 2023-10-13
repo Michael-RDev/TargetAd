@@ -51,3 +51,7 @@ age,gender,store,relevant
 (8-12),Male,imgs/8-12/Male/sports_equipment.png,True
 (8-12),Male,imgs/8-12/Male/sports_equipment.png,True
 (8-12),Male,imgs/8-12/Male/sports_equipment.png,False
+(15-20),Female,imgs/15-20/Female/dresses.png,True
+(15-20),Female,imgs/15-20/Female/dresses.png,True
+(25-32),Female,imgs/25-32/Female/modern_clothing.png,True
+(38-41),Female,imgs/38-41/Female/jewlery_repair.png,False

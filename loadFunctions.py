@@ -33,7 +33,7 @@ def load_ad(input_age:str, age_val:list, images:list, gender:str, gen_val:list):
             print(f"Gender: {gender}")
             print(f"Selected image path: {img_path}")
             img = cv2.imread(img_path)
-            img = cv2.resize(img, (800, 800))
+            img = cv2.resize(img, (1000, 1000))
             img = img / 255.0
 
             img_path_updated = img_path.split("/")[-1]
